@@ -1,0 +1,6 @@
+@value colorBlue: #A6C1EE;
+@value colorPink: #FBC2EB;
+@value colorMajorGradient: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+@value colorYellow: #FFF1A8;
+@value colorRed: #FF9E9E;
+@value colorWhite: white;

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 20%;
+  background-color: wheat;
+}
+
+.logo {
+  width: 200px;
+}
+
+.search {
+  width: 500px;
+  height: 30px;
+}

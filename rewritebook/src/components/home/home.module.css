@@ -1,0 +1,26 @@
+@value colorMajorGradient, colorWhite from "../../common/colors.css";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.books {
+  background-image: url("../../../public/images/old-books.png");
+  height: 55rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.titles {
+  color: colorWhite;
+  padding: 2em 20%;
+}
+
+.reviewAndFeedback {
+  padding: 5em 20%;
+  display: flex;
+  justify-content: space-between;
+  background-image: colorMajorGradient;
+}

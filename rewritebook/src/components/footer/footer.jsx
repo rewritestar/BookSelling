@@ -1,15 +1,15 @@
 import React from "react";
-
+import styles from "./footer.module.css";
 const Footer = (props) => {
   return (
-    <>
-      <span className="developer_info"></span>
-      <div className="developer_link">
-        <p className="git"></p>
-        <p className="email"></p>
+    <div className={styles.container}>
+      <span className="developer_info">개발자: 조인미</span>
+      <div className={styles.developer_link}>
+        <p className="git">깃 아이콘</p>
+        <p className="email">이메일 링크</p>
       </div>
-      <p className="rewrite Book"></p>
-    </>
+      <p className="rewrite Book">rewrite Book</p>
+    </div>
   );
 };
 

@@ -5,10 +5,10 @@ import Cart from "./components/cart/cart";
 import Home from "./components/home/home";
 import Like from "./components/like/like";
 import Search from "./components/search/search";
-
+import styles from "./app.module.css";
 function App() {
   return (
-    <>
+    <div className={styles.app}>
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Home />} />
@@ -18,7 +18,7 @@ function App() {
           <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
