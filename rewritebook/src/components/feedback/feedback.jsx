@@ -1,4 +1,6 @@
 import React from "react";
+import SmallTitle from "../small_title/small_title";
+import Title from "../title/title";
 const Feedback = (props) => {
   return (
     <>

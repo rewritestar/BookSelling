@@ -5,6 +5,7 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import ReviewThumbnail from "../review_thumbnail/review_thumbnail";
 import SmallTitle from "../small_title/small_title";
+import Title from "../title/title";
 
 const Home = (props) => {
   return (
