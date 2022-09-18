@@ -24,7 +24,9 @@ const Search = (props) => {
               ? item.volumeInfo.imageLinks.thumbnail
               : "images/logo.png",
             title: item.volumeInfo.title,
-            writer: item.volumeInfo.authors[0],
+            writer: item.volumeInfo.authors
+              ? item.volumeInfo.authors[0]
+              : "anomynous",
             publishedDate: item.volumeInfo.publishedDate,
             price:
               item.saleInfo.saleability === "NOT_FOR_SALE"

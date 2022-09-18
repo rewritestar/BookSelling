@@ -14,8 +14,14 @@ const BookDetail = (props) => {
       localStorage.setItem("like", JSON.stringify(likeArr));
     } else {
       const like = JSON.parse(localStorage.getItem("like"));
+      const found = like.find((item) => item.id === book.id);
+      if (found) {
+        alert("이미 좋아요 목록에 존재합니다.");
+        return;
+      }
       like.push(book);
       localStorage.setItem("like", JSON.stringify(like));
+      alert("좋아요 목록에 성공적으로 담겼습니다!");
     }
   };
   const handleCart = (e) => {
@@ -33,6 +39,7 @@ const BookDetail = (props) => {
       }
       cart.push(cartBook);
       localStorage.setItem("cart", JSON.stringify(cart));
+      alert("장바구니에 성공적으로 담겼습니다!");
     }
   };
   const handlePriceUp = (e) => {

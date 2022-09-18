@@ -5,11 +5,29 @@ import Header from "../header/header";
 
 const Cart = (props) => {
   const [books, setBooks] = useState([]);
+  const [allCount, setAllCount] = useState();
+  const [allPrice, setAllPrice] = useState();
+  const handleAllCount = (newBooks) => {
+    let counts = 0;
+    newBooks.forEach((item) => (counts += item.count));
+    setAllCount(counts);
+  };
+  const handleAllPrice = (newBooks) => {
+    let prices = 0;
+    newBooks.forEach((item) => (prices += item.count * item.price));
+    setAllPrice(prices);
+  };
+  const handleDelete = (book) => {
+    const newBooks = books.filter((item) => item.id !== book.id);
+    localStorage.setItem("cart", JSON.stringify(newBooks));
+    setBooks(newBooks);
+  };
   useEffect(() => {
     const newBooks = JSON.parse(localStorage.getItem("cart"));
     setBooks(newBooks);
-  }, [localStorage.getItem("like")]);
-  console.log(books);
+    handleAllCount(newBooks);
+    handleAllPrice(newBooks);
+  }, [localStorage.getItem("cart")]);
   return (
     <>
       <Header />
@@ -17,10 +35,15 @@ const Cart = (props) => {
       <section className="cart_container">
         <div className="carts">
           {books.map((book) => (
-            <CartItem key={book.id} book={book} />
+            <CartItem
+              key={book.id}
+              book={book}
+              handleAllCount={handleAllCount}
+              handleDelete={handleDelete}
+            />
           ))}
-          <p className="order_counts"></p>
-          <p className="order_prices"></p>
+          <p className="order_counts">총 {allCount} 개</p>
+          <p className="order_prices">총 {allPrice} 원</p>
           <button className="order"></button>
         </div>
       </section>
