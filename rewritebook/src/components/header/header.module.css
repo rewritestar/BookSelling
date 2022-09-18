@@ -1,4 +1,4 @@
-@value colorBlue,colorPink, colorWhite, colorLightBlue, colorLightGrey from '../../common/colors.css';
+@value colorBlue,colorPink, colorRed, colorYellow, colorWhite, colorLightBlue, colorLightGrey from '../../common/colors.css';
 .container {
   display: flex;
   align-items: center;
@@ -31,5 +31,9 @@
 }
 .button.like {
   margin-right: 0.1em;
-  color: colorPink;
+  color: colorRed;
+}
+.button.cart {
+  margin-right: 0.1em;
+  color: colorBlue;
 }
