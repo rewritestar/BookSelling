@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../header/header";
 import ReviewItem from "../review_item/review_item";
@@ -7,7 +7,7 @@ const BookDetail = (props) => {
   const location = useLocation();
   const book = location.state;
   const [price, setPrice] = useState(book.price);
-
+  const count = useRef(1);
   const handleLike = (e) => {
     if (!localStorage.getItem("like")) {
       const likeArr = [book];
@@ -19,14 +19,32 @@ const BookDetail = (props) => {
     }
   };
   const handleCart = (e) => {
+    const cartBook = book;
+    cartBook.count = count.current;
     if (!localStorage.getItem("cart")) {
-      const cartArr = [book];
+      const cartArr = [cartBook];
       localStorage.setItem("cart", JSON.stringify(cartArr));
     } else {
       const cart = JSON.parse(localStorage.getItem("cart"));
-      cart.push(book);
+      const found = cart.find((item) => item.id === cartBook.id);
+      if (found) {
+        alert("이미 장바구니에 존재합니다.");
+        return;
+      }
+      cart.push(cartBook);
       localStorage.setItem("cart", JSON.stringify(cart));
     }
+  };
+  const handlePriceUp = (e) => {
+    count.current++;
+    const newPrice = book.price * count.current;
+    setPrice(newPrice);
+  };
+  const handlePriceDown = (e) => {
+    if (count.current <= 1) return;
+    count.current--;
+    const newPrice = book.price * count.current;
+    setPrice(newPrice);
   };
   return (
     <>
@@ -49,8 +67,13 @@ const BookDetail = (props) => {
                 <p className={styles.price}>{book.price} 원</p>
               </div>
               <div className={styles.price_selection}>
-                <button className={styles.count_up}>^</button>
-                <button className={styles.count_up}>v</button>
+                <button className={styles.count_up} onClick={handlePriceUp}>
+                  ^
+                </button>
+                <p>{count.current}</p>
+                <button className={styles.count_up} onClick={handlePriceDown}>
+                  v
+                </button>
                 <p className={styles.price_change}>{price} 원</p>
               </div>
               <div className={styles.buttons}>
