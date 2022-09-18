@@ -5,24 +5,29 @@ import ReviewItem from "../review_item/review_item";
 import styles from "./book_detail.module.css";
 const BookDetail = (props) => {
   const location = useLocation();
-  const propsBook = location.state;
-  const [book, setBook] = useState({
-    thumbnail: propsBook.volumeInfo.readingModes.image
-      ? propsBook.volumeInfo.imageLinks.thumbnail
-      : "images/logo.png",
-    title: propsBook.volumeInfo.title,
-    writer: propsBook.volumeInfo.authors[0],
-    publishedDate: propsBook.volumeInfo.publishedDate,
-    price:
-      propsBook.saleInfo.saleability === "NOT_FOR_SALE"
-        ? "20000"
-        : propsBook.saleInfo.listPrice.amount,
-    description: propsBook.volumeInfo.description
-      ? propsBook.volumeInfo.description
-      : "no description",
-  });
+  const book = location.state;
   const [price, setPrice] = useState(book.price);
-  console.log(book);
+
+  const handleLike = (e) => {
+    if (!localStorage.getItem("like")) {
+      const likeArr = [book];
+      localStorage.setItem("like", JSON.stringify(likeArr));
+    } else {
+      const like = JSON.parse(localStorage.getItem("like"));
+      like.push(book);
+      localStorage.setItem("like", JSON.stringify(like));
+    }
+  };
+  const handleCart = (e) => {
+    if (!localStorage.getItem("cart")) {
+      const cartArr = [book];
+      localStorage.setItem("cart", JSON.stringify(cartArr));
+    } else {
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      cart.push(book);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  };
   return (
     <>
       <Header />
@@ -49,8 +54,12 @@ const BookDetail = (props) => {
                 <p className={styles.price_change}>{price} 원</p>
               </div>
               <div className={styles.buttons}>
-                <button className={styles.like}>Like</button>
-                <button className={styles.cart}>Cart</button>
+                <button className={styles.like} onClick={handleLike}>
+                  Like
+                </button>
+                <button className={styles.cart} onClick={handleCart}>
+                  Cart
+                </button>
               </div>
             </div>
           </div>
