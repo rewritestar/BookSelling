@@ -25,7 +25,7 @@ const Home = (props) => {
           <Title name="Books" />
         </div>
         {books.map((book) => (
-          <BookItem book={book} />
+          <BookItem key={book.id} book={book} />
         ))}
       </section>
       <section className={styles.reviewAndFeedback}>

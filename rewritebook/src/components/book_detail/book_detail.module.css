@@ -1,0 +1,49 @@
+@value colorWhite, colorGrey from "../../common/colors.css";
+
+.about_book {
+  background-color: blueviolet;
+  padding: 5em 25%;
+}
+
+.thumbnail {
+  width: 450px;
+  height: 550px;
+  margin-right: 1em;
+}
+.padding_container {
+  background-color: colorWhite;
+  border-radius: 5px;
+  border: 2px solid colorGrey;
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.controller {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info_major {
+  text-align: end;
+}
+.title {
+  font-size: 40px;
+  margin-bottom: 0.5em;
+}
+.writer {
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+.price {
+  font-size: 30px;
+}
+.price_selection {
+  display: flex;
+  justify-content: end;
+}
+.price_change {
+  font-size: 50px;
+}
+.description {
+  padding: 5em 25%;
+}

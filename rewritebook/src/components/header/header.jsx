@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
+import { BsBookmarkHeart, BsCart4 } from "react-icons/bs";
+
 const Header = (props) => {
   const navigate = useNavigate();
   const goToLike = (e) => {
@@ -21,13 +23,16 @@ const Header = (props) => {
         alt="logo"
         onClick={goToHome}
       />
-      <input type="text" className={styles.search}></input>
+      <input type="text" className={styles.search} placeholder="Search"></input>
       <div className={styles.buttons}>
-        <button className={styles.button} onClick={goToLike}>
-          like
+        <button
+          className={`${styles.button} ${styles.like}`}
+          onClick={goToLike}
+        >
+          <BsBookmarkHeart />
         </button>
         <button className={styles.button} onClick={goToCart}>
-          cart
+          <BsCart4 />
         </button>
         <span className={styles.cart_count}>5</span>
       </div>
