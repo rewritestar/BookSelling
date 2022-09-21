@@ -18,7 +18,7 @@ const Header = (props) => {
     navigate("/cart");
   };
   const goToHome = (e) => {
-    navigate("/");
+    window.location.href = "/";
   };
   const handleSearch = (e) => {
     e.preventDefault();

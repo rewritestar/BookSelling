@@ -9,7 +9,6 @@ const Search = ({ HeaderCartCount }) => {
   const location = useLocation();
   const [books, setBooks] = useState([]);
   const keyword = location.state;
-  console.log(keyword);
   useEffect(() => {
     fetch(
       `https://books.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=10&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
@@ -40,7 +39,11 @@ const Search = ({ HeaderCartCount }) => {
           return book;
         })
       )
-      .then((books) => setBooks(books));
+      .then((books) => setBooks(books))
+      .catch((e) => {
+        alert("해당 데이터가 없습니다.");
+        window.location.href = "/";
+      });
   }, [keyword]);
   return (
     <>

@@ -10,8 +10,21 @@ import styles from "./home.module.css";
 const Home = ({ HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
+    const RANDOMQUERY = [
+      "python",
+      "영어",
+      "우주",
+      "대학",
+      "맛집",
+      "여행",
+      "컴퓨터",
+      "음악",
+      "역사",
+    ];
+    let IDX = Math.floor(Math.random() * RANDOMQUERY.length);
+    console.log(IDX);
     fetch(
-      "https://books.googleapis.com/books/v1/volumes?q=python&maxResults=10&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w"
+      `https://books.googleapis.com/books/v1/volumes?q=${RANDOMQUERY[IDX]}&maxResults=10&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
     )
       .then((res) => res.json())
       .then((json) => json.items)

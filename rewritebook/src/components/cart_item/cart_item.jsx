@@ -26,7 +26,6 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
     origin.forEach((item) => {
       if (item.id == book.id) item.count = newCount;
     });
-    console.log(origin);
     localStorage.setItem("cart", JSON.stringify(origin));
     handleAllCount(origin);
   };
@@ -34,12 +33,14 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
     handleDelete(book);
   };
   return (
-    <div className={styles.container} onClick={goToDetail}>
-      <img src={book.thumbnail} />
-      <div className={styles.info}>
-        <p>{book.title}</p>
-        <p>{book.writer}</p>
-        <p>{book.publishedDate}</p>
+    <div className={styles.container}>
+      <div className={styles.clickScope} onClick={goToDetail}>
+        <img src={book.thumbnail} />
+        <div className={styles.info}>
+          <p>{book.title}</p>
+          <p>{book.writer}</p>
+          <p>{book.publishedDate}</p>
+        </div>
       </div>
       <div className={styles.controller}>
         <div className={styles.price}>
