@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./cart_item.module.css";
 const CartItem = ({ book, handleAllCount, handleDelete }) => {
   const [count, setCount] = useState(book.count);
+  const navigate = useNavigate();
+  const goToDetail = (e) => {
+    navigate("/bookdetail", { state: book });
+  };
   const handlePriceUp = (e) => {
     const newCount = count + 1;
     setCount(newCount);
@@ -29,7 +34,7 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
     handleDelete(book);
   };
   return (
-    <>
+    <div className={styles.container} onClick={goToDetail}>
       <img src={book.thumbnail} />
       <div className={styles.info}>
         <p>{book.title}</p>
@@ -49,7 +54,7 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
         </div>
         <button onClick={onClick}>Delete</button>
       </div>
-    </>
+    </div>
   );
 };
 

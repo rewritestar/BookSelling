@@ -51,13 +51,11 @@ function App() {
           />
           <Route
             path="/like"
-            element={<Like />}
-            HeaderCartCount={HeaderCartCount}
+            element={<Like HeaderCartCount={HeaderCartCount} />}
           />
           <Route
             path="/search"
-            element={<Search />}
-            HeaderCartCount={HeaderCartCount}
+            element={<Search HeaderCartCount={HeaderCartCount} />}
           />
         </Routes>
       </BrowserRouter>

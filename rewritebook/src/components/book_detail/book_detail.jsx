@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../header/header";
 import ReviewItem from "../review_item/review_item";
+import ReviewList from "../review_list/review_list";
 import styles from "./book_detail.module.css";
 const BookDetail = ({ HeaderCartCount, onAllCount }) => {
   const location = useLocation();
@@ -104,9 +105,7 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
           <button className={styles.star_high}></button>
           <button className={styles.star_low}></button>
         </div>
-        <div className={styles.reviews}>
-          <ReviewItem />
-        </div>
+        <ReviewList />
       </section>
     </>
   );

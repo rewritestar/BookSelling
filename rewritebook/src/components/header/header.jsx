@@ -9,7 +9,6 @@ const Header = (props) => {
   const [cartCount, setCartCount] = useState(localStorage.getItem("cartCount"));
   useEffect(() => {
     const newCartCount = localStorage.getItem("cartCount");
-    console.log(`header cart : ${newCartCount}`);
     setCartCount(newCartCount);
   }, [localStorage.getItem("cartCount")]);
   const goToLike = (e) => {

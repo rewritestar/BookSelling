@@ -3,12 +3,10 @@ import React from "react";
 const ReviewItem = ({ review }) => {
   return (
     <>
-      <section className="about_reader">
-        <img src="" alt="thumbsnail" />
-        <p className="name"></p>
-        <p className="stars"></p>
-      </section>
-      <p className="contents"></p>
+      <img src={review.img} />
+      <p>{review.writer}</p>
+      <p>{review.stars}</p>
+      <p>{review.content}</p>
     </>
   );
 };
