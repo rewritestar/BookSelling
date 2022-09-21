@@ -7,8 +7,8 @@
   align-items: center;
 }
 .books {
-  background-image: url("../../../public/images/old-books.png");
-  height: 55rem;
+  background-image: url("../../../public/images/old-books-opacity.png");
+  height: 70rem;
   display: flex;
   flex-wrap: wrap;
 }

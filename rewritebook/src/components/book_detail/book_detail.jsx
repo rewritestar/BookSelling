@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../header/header";
 import ReviewItem from "../review_item/review_item";
 import styles from "./book_detail.module.css";
-const BookDetail = (props) => {
+const BookDetail = ({ HeaderCartCount, onAllCount }) => {
   const location = useLocation();
   const book = location.state;
   const [price, setPrice] = useState(book.price);
@@ -39,9 +39,11 @@ const BookDetail = (props) => {
       }
       cart.push(cartBook);
       localStorage.setItem("cart", JSON.stringify(cart));
+      onAllCount(cart);
       alert("장바구니에 성공적으로 담겼습니다!");
     }
   };
+
   const handlePriceUp = (e) => {
     count.current++;
     const newPrice = book.price * count.current;
@@ -55,7 +57,7 @@ const BookDetail = (props) => {
   };
   return (
     <>
-      <Header />
+      <HeaderCartCount />
       <section className={styles.book_container}>
         <div className={styles.about_book}>
           <div className={styles.padding_container}>

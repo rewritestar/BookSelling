@@ -4,7 +4,7 @@ import Header from "../header/header";
 import LikeItem from "../like_item/like_item";
 import Title from "../title/title";
 import styles from "./like.module.css";
-const Like = (props) => {
+const Like = ({ HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     const newBooks = JSON.parse(localStorage.getItem("like"));
@@ -19,7 +19,7 @@ const Like = (props) => {
   };
   return (
     <>
-      <Header />
+      <HeaderCartCount />
       <Title name="Like" />
       <section className="like_container">
         {books.map((book) => (

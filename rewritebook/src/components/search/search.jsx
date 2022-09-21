@@ -5,7 +5,7 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import Title from "../title/title";
 
-const Search = (props) => {
+const Search = ({ HeaderCartCount }) => {
   const location = useLocation();
   const [books, setBooks] = useState([]);
   const keyword = location.state;
@@ -44,7 +44,7 @@ const Search = (props) => {
   }, [keyword]);
   return (
     <>
-      <Header />
+      <HeaderCartCount />
       <Title name="search" />
       <section className="like_container">
         {books.map((book) => (

@@ -3,14 +3,12 @@ import CartItem from "../cart_item/cart_item";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 
-const Cart = (props) => {
+const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
   const [books, setBooks] = useState([]);
-  const [allCount, setAllCount] = useState();
   const [allPrice, setAllPrice] = useState();
+
   const handleAllCount = (newBooks) => {
-    let counts = 0;
-    newBooks.forEach((item) => (counts += item.count));
-    setAllCount(counts);
+    onAllCount(newBooks);
   };
   const handleAllPrice = (newBooks) => {
     let prices = 0;
@@ -30,7 +28,7 @@ const Cart = (props) => {
   }, [localStorage.getItem("cart")]);
   return (
     <>
-      <Header />
+      <HeaderCartCount />
       <p className="cart_title"></p>
       <section className="cart_container">
         <div className="carts">

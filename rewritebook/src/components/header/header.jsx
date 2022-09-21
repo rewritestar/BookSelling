@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
 import { BsBookmarkHeart, BsCart4 } from "react-icons/bs";
@@ -6,6 +6,12 @@ import { BsBookmarkHeart, BsCart4 } from "react-icons/bs";
 const Header = (props) => {
   const navigate = useNavigate();
   const inputRef = useRef();
+  const [cartCount, setCartCount] = useState(localStorage.getItem("cartCount"));
+  useEffect(() => {
+    const newCartCount = localStorage.getItem("cartCount");
+    console.log(`header cart : ${newCartCount}`);
+    setCartCount(newCartCount);
+  }, [localStorage.getItem("cartCount")]);
   const goToLike = (e) => {
     navigate("/like");
   };
@@ -50,7 +56,7 @@ const Header = (props) => {
         >
           <BsCart4 />
         </button>
-        <span className={styles.cart_count}>5</span>
+        <span className={styles.cart_count}>{cartCount}</span>
       </div>
     </div>
   );

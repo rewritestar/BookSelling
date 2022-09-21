@@ -7,7 +7,7 @@ import ReviewThumbnail from "../review_thumbnail/review_thumbnail";
 import SmallTitle from "../small_title/small_title";
 import Title from "../title/title";
 import styles from "./home.module.css";
-const Home = (props) => {
+const Home = ({ HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     fetch(
@@ -41,7 +41,7 @@ const Home = (props) => {
   }, []);
   return (
     <div className={styles.containter}>
-      <Header />
+      <HeaderCartCount />
       <section className={styles.books}>
         <div className={styles.titles}>
           <SmallTitle name="new!" />
