@@ -4,7 +4,7 @@ const ReviewItem = ({ review }) => {
   const printStars = (num) => {
     let stars;
     switch (num) {
-      case 1:
+      case "1":
         stars = (
           <>
             <AiFillStar />
@@ -15,7 +15,7 @@ const ReviewItem = ({ review }) => {
           </>
         );
         break;
-      case 2:
+      case "2":
         stars = (
           <>
             <AiFillStar />
@@ -26,7 +26,7 @@ const ReviewItem = ({ review }) => {
           </>
         );
         break;
-      case 3:
+      case "3":
         stars = (
           <>
             <AiFillStar />
@@ -37,7 +37,7 @@ const ReviewItem = ({ review }) => {
           </>
         );
         break;
-      case 4:
+      case "4":
         stars = (
           <>
             <AiFillStar />
@@ -48,7 +48,7 @@ const ReviewItem = ({ review }) => {
           </>
         );
         break;
-      case 5:
+      case "5":
         stars = (
           <>
             <AiFillStar />

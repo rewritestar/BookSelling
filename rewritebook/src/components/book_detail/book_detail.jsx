@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "../header/header";
-import ReviewItem from "../review_item/review_item";
 import ReviewList from "../review_list/review_list";
 import styles from "./book_detail.module.css";
 const BookDetail = ({ HeaderCartCount, onAllCount }) => {
@@ -28,21 +26,21 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
   const handleCart = (e) => {
     const cartBook = book;
     cartBook.count = count.current;
+    let cart;
     if (!localStorage.getItem("cart")) {
-      const cartArr = [cartBook];
-      localStorage.setItem("cart", JSON.stringify(cartArr));
+      cart = [cartBook];
     } else {
-      const cart = JSON.parse(localStorage.getItem("cart"));
+      cart = JSON.parse(localStorage.getItem("cart"));
       const found = cart.find((item) => item.id === cartBook.id);
       if (found) {
         alert("이미 장바구니에 존재합니다.");
         return;
       }
       cart.push(cartBook);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      onAllCount(cart);
-      alert("장바구니에 성공적으로 담겼습니다!");
     }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    onAllCount(cart);
+    alert("장바구니에 성공적으로 담겼습니다!");
   };
 
   const handlePriceUp = (e) => {

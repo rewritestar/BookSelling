@@ -7,9 +7,13 @@ import ReviewThumbnail from "../review_thumbnail/review_thumbnail";
 import SmallTitle from "../small_title/small_title";
 import Title from "../title/title";
 import styles from "./home.module.css";
+import reviewjson from "../../data/review.json";
 const Home = ({ HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
+  const [reviews, setReviews] = useState([]);
   useEffect(() => {
+    const reviewArr = reviewjson.items;
+    setReviews(reviewArr);
     const RANDOMQUERY = [
       "python",
       "영어",
@@ -22,7 +26,7 @@ const Home = ({ HeaderCartCount }) => {
       "역사",
     ];
     let IDX = Math.floor(Math.random() * RANDOMQUERY.length);
-    console.log(IDX);
+
     fetch(
       `https://books.googleapis.com/books/v1/volumes?q=${RANDOMQUERY[IDX]}&maxResults=10&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
     )
@@ -36,7 +40,9 @@ const Home = ({ HeaderCartCount }) => {
               ? item.volumeInfo.imageLinks.thumbnail
               : "images/logo.png",
             title: item.volumeInfo.title,
-            writer: item.volumeInfo.authors[0],
+            writer: item.volumeInfo.authors
+              ? item.volumeInfo.authors[0]
+              : "anomynous",
             publishedDate: item.volumeInfo.publishedDate,
             price:
               item.saleInfo.saleability === "NOT_FOR_SALE"
@@ -66,7 +72,7 @@ const Home = ({ HeaderCartCount }) => {
       </section>
       <section className={styles.reviewAndFeedback}>
         <div className="reviews">
-          <ReviewThumbnail />
+          <ReviewThumbnail reviews={reviews} />
         </div>
         <div className="feedback">
           <Feedback />

@@ -9,13 +9,16 @@ import styles from "./app.module.css";
 import { useEffect, useState } from "react";
 import Header from "./components/header/header";
 function App() {
-  const [allCount, setAllCount] = useState(localStorage.getItem("cartCount"));
+  const [allCount, setAllCount] = useState(
+    localStorage.getItem("cartCount") ? localStorage.getItem("cartCount") : 0
+  );
   useEffect(() => {
     localStorage.setItem("cartCount", allCount);
   }, [allCount]);
   const handleAllCount = (newBooks) => {
     let counts = 0;
     newBooks.forEach((item) => (counts += item.count));
+    console.log(`handleAllCount : ${counts}`);
     setAllCount(counts);
   };
   const HeaderCartCount = (props) => {

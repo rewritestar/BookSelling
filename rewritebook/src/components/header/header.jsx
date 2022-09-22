@@ -3,14 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
 import { BsBookmarkHeart, BsCart4 } from "react-icons/bs";
 
-const Header = (props) => {
+const Header = ({ allCount }) => {
   const navigate = useNavigate();
   const inputRef = useRef();
-  const [cartCount, setCartCount] = useState(localStorage.getItem("cartCount"));
-  useEffect(() => {
-    const newCartCount = localStorage.getItem("cartCount");
-    setCartCount(newCartCount);
-  }, [localStorage.getItem("cartCount")]);
   const goToLike = (e) => {
     navigate("/like");
   };
@@ -55,7 +50,7 @@ const Header = (props) => {
         >
           <BsCart4 />
         </button>
-        <span className={styles.cart_count}>{cartCount}</span>
+        <span className={styles.cart_count}>{allCount}</span>
       </div>
     </div>
   );
