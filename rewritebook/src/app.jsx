@@ -18,7 +18,6 @@ function App() {
   const handleAllCount = (newBooks) => {
     let counts = 0;
     newBooks.forEach((item) => (counts += item.count));
-    console.log(`handleAllCount : ${counts}`);
     setAllCount(counts);
   };
   const HeaderCartCount = (props) => {
