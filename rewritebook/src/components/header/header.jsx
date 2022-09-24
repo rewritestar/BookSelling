@@ -44,6 +44,7 @@ const Header = ({ allCount }) => {
         >
           <BsBookmarkHeart />
         </button>
+
         <button
           className={`${styles.button} ${styles.cart}`}
           onClick={goToCart}

@@ -3,7 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2em 20%;
+  width: 70%;
+  padding: 2em 0;
+  margin: auto;
 }
 
 .logo {
@@ -12,8 +14,8 @@
 }
 
 .search {
-  width: 600px;
-  height: 45px;
+  width: 40vw;
+  height: 50px;
   background-color: colorLightBlue;
   border: colorLightGrey;
   border-radius: 10px;
@@ -23,17 +25,32 @@
   border: 2px solid colorBlue;
   outline: none;
 }
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .button {
   background: transparent;
   border: none;
-  font-size: 30px;
+  font-size: 35px;
   cursor: pointer;
+  margin-right: 0.3em;
 }
+
 .button.like {
-  margin-right: 0.1em;
   color: colorRed;
 }
 .button.cart {
-  margin-right: 0.1em;
   color: colorBlue;
+}
+
+.cart_count {
+  position: absolute;
+  background-color: colorRed;
+  color: colorWhite;
+  padding: 0.1em 0.5em;
+  margin-left: 5em;
+  margin-bottom: 2em;
+  border-radius: 50px;
 }
