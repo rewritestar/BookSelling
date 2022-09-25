@@ -1,22 +1,37 @@
 @value colorMajorGradient, colorWhite from "../../common/colors.css";
 
-.container {
-}
-.books {
+.main {
   background-image: url("../../../public/images/old-books-opacity.png");
-  height: 70rem;
-  display: flex;
-  flex-wrap: wrap;
+  object-fit: cover;
+  height: 80rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .titles {
   color: colorWhite;
-  padding: 2em 20%;
+  position: relative;
+  top: 10%;
+  left: 15%;
 }
-
+.book_list {
+  width: 120vw;
+  display: flex;
+  position: relative;
+  top: 20%;
+  left: -5%;
+  flex-wrap: wrap;
+}
 .reviewAndFeedback {
-  padding: 5em 20%;
+  width: 70%;
+  margin: 8em auto;
   display: flex;
   justify-content: space-between;
-  background-image: colorMajorGradient;
+  align-items: center;
+}
+
+@media screen and (max-width: 1350px) {
+  .reviewAndFeedback {
+    flex-direction: column;
+  }
 }

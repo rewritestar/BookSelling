@@ -8,6 +8,7 @@ import SmallTitle from "../small_title/small_title";
 import Title from "../title/title";
 import styles from "./home.module.css";
 import reviewjson from "../../data/review.json";
+import MainItem from "../main_item/main_item";
 const Home = ({ HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -28,7 +29,7 @@ const Home = ({ HeaderCartCount }) => {
     let IDX = Math.floor(Math.random() * RANDOMQUERY.length);
 
     fetch(
-      `https://books.googleapis.com/books/v1/volumes?q=${RANDOMQUERY[IDX]}&maxResults=10&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
+      `https://books.googleapis.com/books/v1/volumes?q=${RANDOMQUERY[IDX]}&maxResults=16&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
     )
       .then((res) => res.json())
       .then((json) => json.items)
@@ -61,14 +62,16 @@ const Home = ({ HeaderCartCount }) => {
   return (
     <div className={styles.containter}>
       <HeaderCartCount />
-      <section className={styles.books}>
+      <section className={styles.main}>
         <div className={styles.titles}>
           <SmallTitle name="new!" />
           <Title name="Books" />
         </div>
-        {books.map((book) => (
-          <BookItem key={book.id} book={book} />
-        ))}
+        <div className={styles.book_list}>
+          {books.map((book) => (
+            <MainItem key={book.id} book={book} />
+          ))}
+        </div>
       </section>
       <section className={styles.reviewAndFeedback}>
         <div className="reviews">

@@ -1,0 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coda&display=swap");
+
+@value fontA: 'Coda';
+@value fontB: 'Amatic SC';

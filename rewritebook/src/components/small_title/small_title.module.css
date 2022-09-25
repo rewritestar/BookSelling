@@ -1,0 +1,6 @@
+@value fontB from "../../common/fonts.css";
+.smalltitle {
+  font-family: fontB;
+  font-size: 30px;
+  font-weight: 700;
+}

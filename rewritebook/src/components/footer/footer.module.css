@@ -1,10 +1,32 @@
+@value colorMajorGradient, colorBlue, colorPink from '../../common/colors.css';
 .container {
+  display: flex;
+  flex-direction: column;
+}
+.container::before {
+  content: "";
+  display: block;
+  border: 3px solid transparent;
+  border-image: linear-gradient(to right, colorBlue, colorPink);
+  border-image-slice: 1;
+}
+.content {
+  width: 70%;
+  margin: auto;
+  padding: 0.5em 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0em 20%;
 }
 
 .developer_link {
   display: flex;
+}
+
+.button {
+  font-size: 1.8em;
+  background-color: transparent;
+  border: none;
+  margin-right: 0.5em;
+  cursor: pointer;
 }

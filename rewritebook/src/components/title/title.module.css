@@ -1,0 +1,7 @@
+@value fontA from '../../common/fonts.css';
+
+.title {
+  font-family: fontA;
+  font-size: 50px;
+  font-weight: 900;
+}

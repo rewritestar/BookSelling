@@ -4,8 +4,8 @@
       "id": "1",
       "bookid": "1",
       "img": "./images/logo.png",
-      "writer": "작성자1",
-      "content": "내용1",
+      "writer": "신선한고양이",
+      "content": "이번에 봤던 책 중에서 가장 재밌었던 것 같아요. 아무래도 제가 책을 많이 보는 사람은 아닌데도 불구하고 재밌게 봤어요.",
       "stars": "5"
     },
 
@@ -13,24 +13,24 @@
       "id": "2",
       "bookid": "1",
       "img": "./images/logo.png",
-      "writer": "작성자2",
-      "content": "내용2",
+      "writer": "떡볶이 먹고 싶은 사람",
+      "content": "떡볶이가 먹고 싶을 때 읽으면 좋은 것 같아요.",
       "stars": "3"
     },
     {
       "id": "3",
       "bookid": "1",
       "img": "./images/logo.png",
-      "writer": "작성자3",
-      "content": "내용3",
+      "writer": "집가고 시팓",
+      "content": "집 보내줘....",
       "stars": "3"
     },
     {
       "id": "4",
       "bookid": "1",
       "img": "./images/logo.png",
-      "writer": "작성자4",
-      "content": "내용4",
+      "writer": "asdfql",
+      "content": "독후감 써야해서 어쩔 수 없이 봄. 그냥 그럼. 솔직히 시간 아까웠음",
       "stars": "4"
     }
   ]

@@ -1,14 +1,32 @@
 import React from "react";
 import styles from "./footer.module.css";
+import { AiFillGithub } from "react-icons/ai";
+import { MdAlternateEmail } from "react-icons/md";
 const Footer = (props) => {
   return (
     <div className={styles.container}>
-      <span className="developer_info">개발자: 조인미</span>
-      <div className={styles.developer_link}>
-        <p className="git">깃 아이콘</p>
-        <p className="email">이메일 링크</p>
+      <div className={styles.content}>
+        <span className="developer_info">개발자: 조인미</span>
+        <div className={styles.developer_link}>
+          <button
+            className={styles.button}
+            onClick={() =>
+              window.open("https://github.com/rewritestar", "_blank")
+            }
+          >
+            <AiFillGithub />
+          </button>
+          <button
+            className={styles.button}
+            onClick={() =>
+              window.open("mailto:rewritestar@naver.com", "_blank")
+            }
+          >
+            <MdAlternateEmail />
+          </button>
+        </div>
+        <p className="rewrite Book">rewrite Book</p>
       </div>
-      <p className="rewrite Book">rewrite Book</p>
     </div>
   );
 };
