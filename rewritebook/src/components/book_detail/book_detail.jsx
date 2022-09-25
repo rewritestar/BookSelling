@@ -11,36 +11,26 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
   const [price, setPrice] = useState(book.price);
   const count = useRef(1);
   const handleLike = (e) => {
-    if (!localStorage.getItem("like")) {
-      const likeArr = [book];
-      localStorage.setItem("like", JSON.stringify(likeArr));
-    } else {
-      const like = JSON.parse(localStorage.getItem("like"));
-      const found = like.find((item) => item.id === book.id);
-      if (found) {
-        alert("이미 좋아요 목록에 존재합니다.");
-        return;
-      }
-      like.push(book);
-      localStorage.setItem("like", JSON.stringify(like));
-      alert("좋아요 목록에 성공적으로 담겼습니다!");
+    const like = JSON.parse(localStorage.getItem("like"));
+    const found = like.find((item) => item.id === book.id);
+    if (found) {
+      alert("이미 좋아요 목록에 존재합니다.");
+      return;
     }
+    like.push(book);
+    localStorage.setItem("like", JSON.stringify(like));
+    alert("좋아요 목록에 성공적으로 담겼습니다!");
   };
   const handleCart = (e) => {
     const cartBook = book;
     cartBook.count = count.current;
-    let cart;
-    if (!localStorage.getItem("cart")) {
-      cart = [cartBook];
-    } else {
-      cart = JSON.parse(localStorage.getItem("cart"));
-      const found = cart.find((item) => item.id === cartBook.id);
-      if (found) {
-        alert("이미 장바구니에 존재합니다.");
-        return;
-      }
-      cart.push(cartBook);
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const found = cart.find((item) => item.id === cartBook.id);
+    if (found) {
+      alert("이미 장바구니에 존재합니다.");
+      return;
     }
+    cart.push(cartBook);
     localStorage.setItem("cart", JSON.stringify(cart));
     onAllCount(cart);
     alert("장바구니에 성공적으로 담겼습니다!");

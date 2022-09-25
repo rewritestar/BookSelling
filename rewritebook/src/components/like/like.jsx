@@ -13,8 +13,8 @@ const Like = ({ HeaderCartCount }) => {
   const handleDelete = (book) => {
     const origin = JSON.parse(localStorage.getItem("like"));
     const newBooks = origin.filter((item) => item.id !== book.id);
-    setBooks(newBooks);
     localStorage.setItem("like", JSON.stringify(newBooks));
+    setBooks(newBooks);
   };
   return (
     <>
