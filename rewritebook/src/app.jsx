@@ -8,7 +8,7 @@ import Search from "./components/search/search";
 import styles from "./app.module.css";
 import { useEffect, useState } from "react";
 import Header from "./components/header/header";
-function App() {
+function App({ bookApi }) {
   const [allCount, setAllCount] = useState(
     localStorage.getItem("cartCount") ? localStorage.getItem("cartCount") : 0
   );
@@ -36,7 +36,9 @@ function App() {
           <Route
             path="/"
             exact
-            element={<Home HeaderCartCount={HeaderCartCount} />}
+            element={
+              <Home bookApi={bookApi} HeaderCartCount={HeaderCartCount} />
+            }
           />
           <Route
             path="/bookdetail"
@@ -63,7 +65,9 @@ function App() {
           />
           <Route
             path="/search"
-            element={<Search HeaderCartCount={HeaderCartCount} />}
+            element={
+              <Search bookApi={bookApi} HeaderCartCount={HeaderCartCount} />
+            }
           />
         </Routes>
       </BrowserRouter>

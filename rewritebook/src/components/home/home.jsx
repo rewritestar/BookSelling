@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import BookItem from "../book_item/book_item";
 import Feedback from "../feedback/feedback";
 import Footer from "../footer/footer";
-import Header from "../header/header";
 import ReviewThumbnail from "../review_thumbnail/review_thumbnail";
 import SmallTitle from "../small_title/small_title";
 import Title from "../title/title";
 import styles from "./home.module.css";
 import reviewjson from "../../data/review.json";
 import MainItem from "../main_item/main_item";
-const Home = ({ HeaderCartCount }) => {
+const Home = ({ bookApi, HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -28,35 +26,8 @@ const Home = ({ HeaderCartCount }) => {
     ];
     let IDX = Math.floor(Math.random() * RANDOMQUERY.length);
 
-    fetch(
-      `https://books.googleapis.com/books/v1/volumes?q=${RANDOMQUERY[IDX]}&maxResults=16&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
-    )
-      .then((res) => res.json())
-      .then((json) => json.items)
-      .then((booksAPI) =>
-        booksAPI.map((item) => {
-          const book = {
-            id: item.id,
-            thumbnail: item.volumeInfo.readingModes.image
-              ? item.volumeInfo.imageLinks.thumbnail
-              : "images/logo.png",
-            title: item.volumeInfo.title,
-            writer: item.volumeInfo.authors
-              ? item.volumeInfo.authors[0]
-              : "anomynous",
-            publishedDate: item.volumeInfo.publishedDate,
-            price:
-              item.saleInfo.saleability === "NOT_FOR_SALE"
-                ? "20000"
-                : item.saleInfo.listPrice.amount,
-            description: item.volumeInfo.description
-              ? item.volumeInfo.description
-              : "no description",
-            isImage: item.volumeInfo.readingModes.image ? true : false,
-          };
-          return book;
-        })
-      )
+    bookApi
+      .random(RANDOMQUERY, IDX) //
       .then((books) => setBooks(books));
   }, []);
   return (
