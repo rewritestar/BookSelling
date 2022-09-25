@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "../cart_item/cart_item";
 import Footer from "../footer/footer";
-import Header from "../header/header";
+import Title from "../title/title";
+import styles from "./cart.module.css";
 
 const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
   const [books, setBooks] = useState([]);
@@ -20,6 +21,13 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
     localStorage.setItem("cart", JSON.stringify(newBooks));
     setBooks(newBooks);
   };
+  const handleOrder = (e) => {
+    const newCart = [];
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartCount", 0);
+    alert("주문이 성공적으로 완료되었습니다!");
+    window.location.href = "/cart";
+  };
   useEffect(() => {
     const newBooks = JSON.parse(localStorage.getItem("cart"));
     setBooks(newBooks);
@@ -27,11 +35,13 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
     handleAllPrice(newBooks);
   }, [localStorage.getItem("cart")]);
   return (
-    <>
+    <div className={styles.container}>
       <HeaderCartCount />
-      <p className="cart_title"></p>
-      <section className="cart_container">
-        <div className="carts">
+      <div className={styles.title}>
+        <Title name="Cart" />
+      </div>
+      <section className={styles.cart_container}>
+        <div className={styles.carts}>
           {books.map((book) => (
             <CartItem
               key={book.id}
@@ -40,13 +50,23 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
               handleDelete={handleDelete}
             />
           ))}
-          <p className="order_counts">총 {allCount} 개</p>
-          <p className="order_prices">총 {allPrice} 원</p>
-          <button className="order"></button>
+          <div className={styles.orderAndInfo}>
+            <div className={styles.order_info}>
+              <p className={styles.order_counts}>
+                전체 주문 수량: {allCount} 개
+              </p>
+              <p className={styles.order_prices}>
+                최종 결제 금액: {allPrice} 원
+              </p>
+            </div>
+            <button className={styles.order_btn} onClick={handleOrder}>
+              Order
+            </button>
+          </div>
         </div>
       </section>
       <Footer />
-    </>
+    </div>
   );
 };
 

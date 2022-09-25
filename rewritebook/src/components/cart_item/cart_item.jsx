@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
+
 import styles from "./cart_item.module.css";
 const CartItem = ({ book, handleAllCount, handleDelete }) => {
   const [count, setCount] = useState(book.count);
@@ -34,26 +36,30 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.clickScope} onClick={goToDetail}>
-        <img src={book.thumbnail} />
+      <div className={styles.click_scope} onClick={goToDetail}>
+        <img className={styles.img} src={book.thumbnail} />
         <div className={styles.info}>
-          <p>{book.title}</p>
-          <p>{book.writer}</p>
-          <p>{book.publishedDate}</p>
+          <p className={styles.title}>{book.title}</p>
+          <p className={styles.writer}>{book.writer}</p>
+          <p className={styles.publishedDate}>{book.publishedDate}</p>
         </div>
       </div>
       <div className={styles.controller}>
-        <div className={styles.price}>
-          <p>{book.price}</p>
-          <button className={styles.count_up} onClick={handlePriceUp}>
-            ^
-          </button>
-          <p>{count}</p>
-          <button className={styles.count_up} onClick={handlePriceDown}>
-            v
-          </button>
+        <div className={styles.priceAndButton}>
+          <div className={styles.count_buttons}>
+            <button className={styles.button} onClick={handlePriceUp}>
+              <IoMdArrowDropup />
+            </button>
+            <p className={styles.count}>{count}</p>
+            <button className={styles.button} onClick={handlePriceDown}>
+              <IoMdArrowDropdown />
+            </button>
+          </div>
+          <p className={styles.price}>{book.price}</p>
         </div>
-        <button onClick={onClick}>Delete</button>
+        <button className={styles.delete_btn} onClick={onClick}>
+          Delete
+        </button>
       </div>
     </div>
   );

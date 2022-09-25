@@ -1,0 +1,85 @@
+@value colorMajorGradient, colorRed, colorBlue, colorPink, colorLightGrey,colorGrey from '../../common/colors.css';
+@value fontB from '../../common/fonts.css';
+
+.container {
+  padding: 1em;
+  border: 3px solid colorLightGrey;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 1.5em;
+}
+
+.click_scope {
+  display: flex;
+  cursor: pointer;
+}
+
+.img {
+  border: 1px solid colorLightGrey;
+  border-radius: 5px;
+  width: 110px;
+  height: 140px;
+
+  margin-right: 2em;
+}
+
+.info {
+  padding: 1em;
+}
+
+.info .title {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 1em;
+}
+
+.controller {
+  width: 140px;
+  border-left: 3px solid transparent;
+  border-image: colorMajorGradient;
+  border-image-slice: 1;
+  padding: 1em;
+  padding-right: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.priceAndButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.count_buttons {
+  margin-right: 1em;
+}
+
+.button {
+  background-color: colorLightGrey;
+  border: none;
+  cursor: pointer;
+}
+.count {
+  text-align: center;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.delete_btn {
+  width: 100%;
+  background-color: colorRed;
+  font-family: fontB;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+
+  padding: 0.2em 0.8em;
+  cursor: pointer;
+}

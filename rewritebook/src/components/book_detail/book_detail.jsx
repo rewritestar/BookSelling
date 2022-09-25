@@ -4,7 +4,7 @@ import ReviewList from "../review_list/review_list";
 import styles from "./book_detail.module.css";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import SmallTitle from "../small_title/small_title";
-import Title from "../title/title";
+
 const BookDetail = ({ HeaderCartCount, onAllCount }) => {
   const location = useLocation();
   const book = location.state;

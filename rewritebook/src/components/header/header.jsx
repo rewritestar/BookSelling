@@ -23,35 +23,37 @@ const Header = ({ allCount }) => {
 
   return (
     <div className={styles.container}>
-      <img
-        className={styles.logo}
-        src="images/logo_title.png"
-        alt="logo"
-        onClick={goToHome}
-      />
-      <form onSubmit={handleSearch}>
-        <input
-          ref={inputRef}
-          type="text"
-          className={styles.search}
-          placeholder="Search"
-        ></input>
-      </form>
-      <div className={styles.buttons}>
-        <button
-          className={`${styles.button} ${styles.like}`}
-          onClick={goToLike}
-        >
-          <BsBookmarkHeart />
-        </button>
+      <div className={styles.content}>
+        <img
+          className={styles.logo}
+          src="images/logo_title.png"
+          alt="logo"
+          onClick={goToHome}
+        />
+        <form onSubmit={handleSearch}>
+          <input
+            ref={inputRef}
+            type="text"
+            className={styles.search}
+            placeholder="Search"
+          ></input>
+        </form>
+        <div className={styles.buttons}>
+          <button
+            className={`${styles.button} ${styles.like}`}
+            onClick={goToLike}
+          >
+            <BsBookmarkHeart />
+          </button>
 
-        <button
-          className={`${styles.button} ${styles.cart}`}
-          onClick={goToCart}
-        >
-          <BsCart4 />
-        </button>
-        <span className={styles.cart_count}>{allCount}</span>
+          <button
+            className={`${styles.button} ${styles.cart}`}
+            onClick={goToCart}
+          >
+            <BsCart4 />
+          </button>
+          <span className={styles.cart_count}>{allCount}</span>
+        </div>
       </div>
     </div>
   );

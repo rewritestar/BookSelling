@@ -1,0 +1,45 @@
+@value colorMajorGradient, colorYellow, colorWhite from '../../common/colors.css';
+@value fontB from '../../common/fonts.css';
+
+.title {
+  position: relative;
+  left: 15%;
+  padding: 1em;
+}
+.cart_container {
+  background: colorMajorGradient;
+  padding: 3em 0;
+}
+
+.carts {
+  background-color: colorWhite;
+  width: 70%;
+  margin: auto;
+  padding: 2em;
+  border-radius: 10px;
+}
+.orderAndInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+.order_info {
+  font-size: 25px;
+  font-weight: bold;
+}
+.order_counts {
+  font-size: 20px;
+  margin-bottom: 1em;
+}
+
+.order_btn {
+  background-color: colorYellow;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+  font-family: fontB;
+  font-size: 40px;
+  font-weight: bold;
+}

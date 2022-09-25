@@ -1,11 +1,21 @@
 @value colorBlue,colorPink, colorRed, colorYellow, colorWhite, colorLightBlue, colorLightGrey from '../../common/colors.css';
 .container {
+  width: 70%;
+  margin: auto;
+}
+.content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
   padding: 2em 0;
-  margin: auto;
+}
+.container::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, colorBlue, colorPink);
+  border-image-slice: 1;
 }
 
 .logo {
