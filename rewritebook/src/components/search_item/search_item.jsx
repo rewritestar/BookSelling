@@ -1,11 +1,12 @@
 import React from "react";
 import BookItem from "../book_item/book_item";
-
-const SearchItem = ({ book }) => {
+import styles from "./search_item.module.css";
+const SearchItem = ({ book, pink }) => {
+  const bgColor = pink ? styles.pink : styles.blue;
   return (
-    <>
-      <BookItem book={book} />
-    </>
+    <div className={`${styles.container} ${bgColor}`}>
+      <BookItem key={book.id} book={book} />
+    </div>
   );
 };
 

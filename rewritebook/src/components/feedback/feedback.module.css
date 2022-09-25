@@ -5,7 +5,7 @@
 }
 
 .container {
-  width: 35em;
+  width: 32em;
 }
 .smalltitle {
   color: colorGrey;
@@ -44,7 +44,7 @@
   resize: none;
   border: 2px solid colorWhite;
   border-radius: 10px;
-  width: 480px;
+  width: 450px;
   height: 15em;
   font-size: 1.08em;
   padding: 1em;
@@ -54,7 +54,7 @@
   outline: none;
 }
 .button {
-  width: 480px;
+  width: 450px;
   padding: 0.5em 0;
   font-size: 1.5em;
   font-family: fontB;

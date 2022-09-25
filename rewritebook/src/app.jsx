@@ -13,6 +13,12 @@ function App() {
     localStorage.getItem("cartCount") ? localStorage.getItem("cartCount") : 0
   );
   useEffect(() => {
+    if (localStorage.getItem("like") == undefined)
+      localStorage.setItem("like", JSON.stringify([]));
+    if (localStorage.getItem("cart") == undefined)
+      localStorage.setItem("cart", JSON.stringify([]));
+  }, []);
+  useEffect(() => {
     localStorage.setItem("cartCount", allCount);
   }, [allCount]);
   const handleAllCount = (newBooks) => {

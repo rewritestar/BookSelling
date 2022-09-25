@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../footer/footer";
-import Header from "../header/header";
 import LikeItem from "../like_item/like_item";
 import Title from "../title/title";
 import styles from "./like.module.css";
@@ -20,11 +19,22 @@ const Like = ({ HeaderCartCount }) => {
   return (
     <>
       <HeaderCartCount />
-      <Title name="Like" />
-      <section className="like_container">
-        {books.map((book) => (
-          <LikeItem key={book.id} book={book} handleDelete={handleDelete} />
-        ))}
+      <div className={styles.title}>
+        <Title name="Like" />
+      </div>
+      <section className={styles.like_container}>
+        {books.map((book, i) => {
+          let pink = 0;
+          if (i % 2) pink = 1;
+          return (
+            <LikeItem
+              key={book.id}
+              book={book}
+              handleDelete={handleDelete}
+              pink={pink}
+            />
+          );
+        })}
       </section>
       <Footer />
     </>

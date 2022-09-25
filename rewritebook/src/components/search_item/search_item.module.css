@@ -1,0 +1,12 @@
+@value colorBlue, colorPink from '../../common/colors.css';
+.container {
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 5px;
+}
+.container.pink {
+  background-color: colorPink;
+}
+.container.blue {
+  background-color: colorBlue;
+}

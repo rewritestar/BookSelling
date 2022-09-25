@@ -1,0 +1,24 @@
+@value colorWhite, colorRed, colorBlue, colorPink from '../../common/colors.css';
+@value fontB from '../../common/colors.css';
+.container {
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 5px;
+}
+.container.pink {
+  background-color: colorPink;
+}
+.container.blue {
+  background-color: colorBlue;
+}
+.delete_btn {
+  width: 100%;
+  background-color: colorRed;
+  border: 1px solid colorWhite;
+  border-radius: 5px;
+  font-family: fontB;
+  font-weight: bold;
+  margin-top: 1em;
+  padding: 0.2em;
+  cursor: pointer;
+}

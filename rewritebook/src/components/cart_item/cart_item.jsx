@@ -38,6 +38,7 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
     <div className={styles.container}>
       <div className={styles.click_scope} onClick={goToDetail}>
         <img className={styles.img} src={book.thumbnail} />
+
         <div className={styles.info}>
           <p className={styles.title}>{book.title}</p>
           <p className={styles.writer}>{book.writer}</p>

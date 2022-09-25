@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import BookItem from "../book_item/book_item";
 import Footer from "../footer/footer";
-import Header from "../header/header";
+import SearchItem from "../search_item/search_item";
 import Title from "../title/title";
+import styles from "./search.module.css";
 
 const Search = ({ HeaderCartCount }) => {
   const location = useLocation();
@@ -11,7 +12,7 @@ const Search = ({ HeaderCartCount }) => {
   const keyword = location.state;
   useEffect(() => {
     fetch(
-      `https://books.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=10&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
+      `https://books.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=16&key=AIzaSyA3KVPJTMb5PDt8RDEMSVoAxrZLWWhn55w`
     )
       .then((res) => res.json())
       .then((json) => json.items)
@@ -46,16 +47,20 @@ const Search = ({ HeaderCartCount }) => {
       });
   }, [keyword]);
   return (
-    <>
+    <div className={styles.container}>
       <HeaderCartCount />
-      <Title name="search" />
-      <section className="like_container">
-        {books.map((book) => (
-          <BookItem key={book.id} book={book} />
-        ))}
+      <div className={styles.title}>
+        <Title name="search" />
+      </div>
+      <section className={styles.search_container}>
+        {books.map((book, i) => {
+          let pink = 0;
+          if (i % 2) pink = 1;
+          return <SearchItem key={book.id} book={book} pink={pink} />;
+        })}
       </section>
       <Footer />
-    </>
+    </div>
   );
 };
 

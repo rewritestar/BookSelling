@@ -64,11 +64,13 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
         <div className={styles.about_book}>
           <div className={styles.bg_gradient}></div>
           <div className={styles.padding_container}>
-            <img
-              className={styles.thumbnail}
-              src={book.thumbnail}
-              alt="image"
-            />
+            <div className={styles.img_container}>
+              <img
+                className={styles.thumbnail}
+                src={book.thumbnail}
+                alt="image"
+              />
+            </div>
             <div className={styles.controller}>
               <div className={styles.info_major}>
                 <p className={styles.title}>{book.title}</p>

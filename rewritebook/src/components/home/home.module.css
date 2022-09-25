@@ -11,15 +11,15 @@
 .titles {
   color: colorWhite;
   position: relative;
-  top: 10%;
+  top: 7%;
   left: 15%;
 }
 .book_list {
   width: 150em;
   display: flex;
   position: relative;
-  top: 20%;
-  left: -5%;
+  top: 15%;
+  left: -4%;
   flex-wrap: wrap;
 }
 .reviewAndFeedback {
