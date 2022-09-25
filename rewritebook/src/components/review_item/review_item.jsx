@@ -74,11 +74,11 @@ const ReviewItem = ({ review }) => {
       <div className={styles.info}>
         <div className={styles.img_container}>
           <div className={styles.img_bg}></div>
-          <img className={styles.img} src={review.img} />
+          <img className={styles.img} src={review.img} alt="reviewimg" />
         </div>
         <div className={styles.writer_star}>
           <p className={styles.writer}>{review.writer}</p>
-          <p className={styles.star}>{printStars(review.stars)}</p>
+          <div className={styles.star}>{printStars(review.stars)}</div>
         </div>
       </div>
       <p className={styles.content}>{review.content}</p>

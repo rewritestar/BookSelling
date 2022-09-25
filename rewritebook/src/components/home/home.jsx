@@ -29,7 +29,7 @@ const Home = ({ bookApi, HeaderCartCount }) => {
     bookApi
       .random(RANDOMQUERY, IDX) //
       .then((books) => setBooks(books));
-  }, []);
+  }, [bookApi]);
   return (
     <div className={styles.containter}>
       <HeaderCartCount />

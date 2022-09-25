@@ -5,10 +5,10 @@ import Title from "../title/title";
 import styles from "./like.module.css";
 const Like = ({ HeaderCartCount }) => {
   const [books, setBooks] = useState([]);
+  const newBooks = JSON.parse(localStorage.getItem("like"));
   useEffect(() => {
-    const newBooks = JSON.parse(localStorage.getItem("like"));
     setBooks(newBooks);
-  }, [localStorage.getItem("like")]);
+  }, [newBooks]);
 
   const handleDelete = (book) => {
     const origin = JSON.parse(localStorage.getItem("like"));

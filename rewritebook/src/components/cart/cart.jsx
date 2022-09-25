@@ -7,6 +7,7 @@ import styles from "./cart.module.css";
 const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
   const [books, setBooks] = useState([]);
   const [allPrice, setAllPrice] = useState();
+  const newBooks = JSON.parse(localStorage.getItem("cart"));
 
   const handleAllCount = (newBooks) => {
     onAllCount(newBooks);
@@ -29,11 +30,10 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
     window.location.href = "/cart";
   };
   useEffect(() => {
-    const newBooks = JSON.parse(localStorage.getItem("cart"));
     setBooks(newBooks);
     handleAllCount(newBooks);
     handleAllPrice(newBooks);
-  }, [localStorage.getItem("cart")]);
+  }, [newBooks]);
   return (
     <div className={styles.container}>
       <HeaderCartCount />

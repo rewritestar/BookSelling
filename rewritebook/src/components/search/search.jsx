@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import BookItem from "../book_item/book_item";
 import Footer from "../footer/footer";
 import SearchItem from "../search_item/search_item";
 import Title from "../title/title";
@@ -18,7 +17,7 @@ const Search = ({ bookApi, HeaderCartCount }) => {
         alert("해당 데이터가 없습니다.");
         window.location.href = "/";
       });
-  }, [keyword]);
+  }, [keyword, bookApi]);
   return (
     <div className={styles.container}>
       <HeaderCartCount />

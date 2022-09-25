@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ReviewList from "../review_list/review_list";
 import styles from "./book_detail.module.css";
@@ -58,7 +58,7 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
               <img
                 className={styles.thumbnail}
                 src={book.thumbnail}
-                alt="image"
+                alt="thumbnail"
               />
             </div>
             <div className={styles.controller}>

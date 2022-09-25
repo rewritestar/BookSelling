@@ -24,7 +24,7 @@ const Feedback = (props) => {
       <section className={styles.survey}>
         <div className={styles.star_container}>
           <p className={styles.script}>해당 쇼핑몰을 이용해보니 어떠셨나요?</p>
-          <p className={styles.stars}>{drawStars()}</p>
+          <div className={styles.stars}>{drawStars()}</div>
         </div>
         <div className={styles.input_container}>
           <p className={styles.script}>
