@@ -1,0 +1,53 @@
+@value colorGrey,colorYellow, colorBlue, colorPink from '../../common/colors.css';
+.container {
+  padding: 1em;
+  border: 2px solid colorBlue;
+  border-radius: 10px;
+  flex: 1 1 45%;
+  margin: 1em;
+}
+.info {
+  display: flex;
+}
+.img_container {
+  position: relative;
+  padding: 1em;
+  width: 11em;
+}
+.img_bg {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: linear-gradient(to right, colorBlue, colorPink);
+}
+.img {
+  position: relative;
+  left: 3em;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  box-shadow: -4px 0px 6px -1px rgba(0, 0, 0, 0.75);
+}
+
+.writer_star {
+  position: relative;
+  padding: 1em;
+  font-size: 20px;
+  margin: auto;
+}
+.writer {
+  font-weight: 900;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.star {
+  color: colorYellow;
+  font-size: 30px;
+  text-align: center;
+}
+
+.content {
+  padding: 1em;
+  font-size: 20px;
+}

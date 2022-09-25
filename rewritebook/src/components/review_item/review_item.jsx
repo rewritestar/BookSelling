@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import styles from "./review_item.module.css";
 const ReviewItem = ({ review }) => {
   const printStars = (num) => {
     let stars;
@@ -69,12 +70,19 @@ const ReviewItem = ({ review }) => {
     return stars;
   };
   return (
-    <>
-      <img src={review.img} />
-      <p>{review.writer}</p>
-      <p>{printStars(review.stars)}</p>
-      <p>{review.content}</p>
-    </>
+    <div className={styles.container}>
+      <div className={styles.info}>
+        <div className={styles.img_container}>
+          <div className={styles.img_bg}></div>
+          <img className={styles.img} src={review.img} />
+        </div>
+        <div className={styles.writer_star}>
+          <p className={styles.writer}>{review.writer}</p>
+          <p className={styles.star}>{printStars(review.stars)}</p>
+        </div>
+      </div>
+      <p className={styles.content}>{review.content}</p>
+    </div>
   );
 };
 

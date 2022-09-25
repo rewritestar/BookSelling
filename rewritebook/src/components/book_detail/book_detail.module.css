@@ -1,22 +1,35 @@
-@value colorWhite, colorGrey from "../../common/colors.css";
-
+@value colorWhite, colorGrey, colorLightGrey, colorBlue, colorPink, colorRed, colorYellow from "../../common/colors.css";
+@value fontB from '../../common/fonts.css';
 .about_book {
-  background-color: blueviolet;
-  padding: 5em 25%;
+  position: relative;
+  width: 100%;
+  padding: 5em 0;
+}
+.bg_gradient {
+  position: absolute;
+  width: 100%;
+  height: 25em;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(to right, colorBlue, colorPink);
+  z-index: -1;
 }
 
-.thumbnail {
-  width: 450px;
-  height: 550px;
-  margin-right: 1em;
-}
 .padding_container {
+  width: 50%;
+  margin: auto;
   background-color: colorWhite;
   border-radius: 5px;
   border: 2px solid colorGrey;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
+}
+.thumbnail {
+  width: 450px;
+  height: 550px;
+  border-radius: 5px;
+  margin-right: 1em;
 }
 .controller {
   display: flex;
@@ -34,16 +47,92 @@
   font-size: 20px;
   margin-bottom: 0.5em;
 }
+.published_date {
+  margin-bottom: 0.5em;
+}
 .price {
-  font-size: 30px;
+  font-size: 20px;
 }
 .price_selection {
   display: flex;
   justify-content: end;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid colorGrey;
+  border-bottom: 1px solid colorGrey;
+}
+.price_controller {
+  padding: 1em;
+  font-size: 20px;
+}
+.count_btn {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.count {
+  text-align: center;
 }
 .price_change {
   font-size: 50px;
 }
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.like_btn {
+  background-color: colorRed;
+  border-radius: 10px;
+  border: none;
+  font-size: 40px;
+  font-family: fontB;
+  font-weight: 900;
+  padding: 0.2em 0.8em;
+  cursor: pointer;
+}
+.cart_btn {
+  background-color: colorYellow;
+  border-radius: 10px;
+  border: none;
+  font-size: 40px;
+  font-family: fontB;
+  font-weight: 900;
+  padding: 0.2em 0;
+  width: 7em;
+  cursor: pointer;
+}
 .description {
-  padding: 5em 25%;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 10em;
+}
+
+.text {
+  margin: 2em 0;
+  font-size: 20px;
+}
+
+.review_container {
+  border-top: 1px solid colorGrey;
+  width: 70%;
+  margin: auto;
+  padding: 2em;
+}
+
+.var {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.star_btn {
+  margin-right: 1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-color: colorLightGrey;
+  padding: 0.5em 1em;
 }

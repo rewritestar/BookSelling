@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ReviewList from "../review_list/review_list";
 import styles from "./book_detail.module.css";
+import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
+import SmallTitle from "../small_title/small_title";
+import Title from "../title/title";
 const BookDetail = ({ HeaderCartCount, onAllCount }) => {
   const location = useLocation();
   const book = location.state;
@@ -59,6 +62,7 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
       <HeaderCartCount />
       <section className={styles.book_container}>
         <div className={styles.about_book}>
+          <div className={styles.bg_gradient}></div>
           <div className={styles.padding_container}>
             <img
               className={styles.thumbnail}
@@ -75,33 +79,43 @@ const BookDetail = ({ HeaderCartCount, onAllCount }) => {
                 <p className={styles.price}>{book.price} 원</p>
               </div>
               <div className={styles.price_selection}>
-                <button className={styles.count_up} onClick={handlePriceUp}>
-                  ^
-                </button>
-                <p>{count.current}</p>
-                <button className={styles.count_up} onClick={handlePriceDown}>
-                  v
-                </button>
+                <div className={styles.price_controller}>
+                  <button className={styles.count_btn} onClick={handlePriceUp}>
+                    <IoMdArrowDropup />
+                  </button>
+                  <p className={styles.count}>{count.current}</p>
+                  <button
+                    className={styles.count_btn}
+                    onClick={handlePriceDown}
+                  >
+                    <IoMdArrowDropdown />
+                  </button>
+                </div>
                 <p className={styles.price_change}>{price} 원</p>
               </div>
               <div className={styles.buttons}>
-                <button className={styles.like} onClick={handleLike}>
+                <button className={styles.like_btn} onClick={handleLike}>
                   Like
                 </button>
-                <button className={styles.cart} onClick={handleCart}>
+                <button className={styles.cart_btn} onClick={handleCart}>
                   Cart
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div className={styles.description}>{book.description}</div>
+        <div className={styles.description}>
+          <SmallTitle name="about book..." />
+          <div className={styles.text}>{book.description}</div>
+        </div>
       </section>
       <section className={styles.review_container}>
         <div className={styles.var}>
-          <p className={styles.review_title}></p>
-          <button className={styles.star_high}></button>
-          <button className={styles.star_low}></button>
+          <SmallTitle name="Reviews" />
+          <div className={styles.star_btns}>
+            <button className={styles.star_btn}>별점 높은순</button>
+            <button className={styles.star_btn}>별점 낮은순</button>
+          </div>
         </div>
         <ReviewList />
       </section>
