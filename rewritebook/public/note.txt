@@ -4,3 +4,5 @@
  이미지 크기를 확실하게 정해주고 싶을 경우, 
  둘다 min, max 로 정해주면 절대 바뀌지 않는 크기 설정 가능.
  
+2. label 안의 input type=radio의 name
+ : name을 같게 해줘야 선택이 only one 가능함.

@@ -1,0 +1,36 @@
+@value colorYellow from '../../common/colors.css';
+
+.drawStarsForm fieldset {
+  display: inline-block;
+  direction: rtl;
+  border: 0;
+}
+.drawStarsForm label {
+  color: colorYellow;
+}
+.drawStarsForm input[type="radio"] {
+  display: none;
+}
+.drawStarsForm .fill {
+  display: none;
+}
+.drawStarsForm label:hover .fill {
+  display: inline-block;
+  cursor: pointer;
+}
+.drawStarsForm label:hover .line {
+  display: none;
+  cursor: pointer;
+}
+.drawStarsForm label:hover ~ label .fill {
+  display: inline-block;
+}
+.drawStarsForm label:hover ~ label .line {
+  display: none;
+}
+.drawStarsForm input:checked ~ label .fill {
+  display: inline-block;
+}
+.drawStarsForm input:checked ~ label .line {
+  display: none;
+}

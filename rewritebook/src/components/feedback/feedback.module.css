@@ -1,9 +1,5 @@
 @value colorMajorGradient,colorGrey, colorWhite, colorYellow from '../../common/colors.css';
 @value fontB from '../../common/fonts.css';
-.drawStars {
-  cursor: pointer;
-}
-
 .container {
   width: 32em;
 }
