@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 
 import styles from "./cart_item.module.css";
-const CartItem = ({ book, onAllCount, handleDelete }) => {
+const CartItem = ({ cartService, book, onAllCount, handleDelete }) => {
   const [count, setCount] = useState(book.count);
   const navigate = useNavigate();
   const goToDetail = (e) => {
@@ -12,25 +12,17 @@ const CartItem = ({ book, onAllCount, handleDelete }) => {
   const handlePriceUp = (e) => {
     const newCount = count + 1;
     setCount(newCount);
-    const origin = JSON.parse(localStorage.getItem("cart"));
-    origin.forEach((item) => {
-      if (item.id == book.id) item.count = newCount;
-    });
-    localStorage.setItem("cart", JSON.stringify(origin));
-    onAllCount(origin);
+    const books = cartService.countUpAndDown(newCount, book);
+    onAllCount(books);
   };
   const handlePriceDown = (e) => {
     if (count <= 1) return;
     const newCount = count - 1;
     setCount(newCount);
-    const origin = JSON.parse(localStorage.getItem("cart"));
-    origin.forEach((item) => {
-      if (item.id == book.id) item.count = newCount;
-    });
-    localStorage.setItem("cart", JSON.stringify(origin));
-    onAllCount(origin);
+    const books = cartService.countUpAndDown(newCount, book);
+    onAllCount(books);
   };
-  const onClick = (e) => {
+  const onDelete = (e) => {
     handleDelete(book);
   };
   return (
@@ -57,7 +49,7 @@ const CartItem = ({ book, onAllCount, handleDelete }) => {
           </div>
           <p className={styles.price}>{book.price}</p>
         </div>
-        <button className={styles.delete_btn} onClick={onClick}>
+        <button className={styles.delete_btn} onClick={onDelete}>
           Delete
         </button>
       </div>

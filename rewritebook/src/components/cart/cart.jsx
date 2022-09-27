@@ -4,10 +4,10 @@ import Footer from "../footer/footer";
 import Title from "../title/title";
 import styles from "./cart.module.css";
 
-const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
+const Cart = ({ HeaderCartCount, cartService, onAllCount, allCount }) => {
   const [books, setBooks] = useState([]);
   const [allPrice, setAllPrice] = useState();
-  const newBooks = JSON.parse(localStorage.getItem("cart"));
+  const newBooks = cartService.getBooks();
 
   const handleAllPrice = (newBooks) => {
     let prices = 0;
@@ -16,19 +16,22 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
   };
   const handleDelete = (book) => {
     const newBooks = books.filter((item) => item.id !== book.id);
-    localStorage.setItem("cart", JSON.stringify(newBooks));
+    cartService.setBooks(newBooks);
     setBooks(newBooks);
   };
   const handleOrder = (e) => {
-    const newCart = [];
-    localStorage.setItem("cart", JSON.stringify(newCart));
-    localStorage.setItem("cartCount", 0);
+    const newBooks = [];
+    cartService.setBooks(newBooks);
+    cartService.setCartCount(0);
     alert("주문이 성공적으로 완료되었습니다!");
     window.location.href = "/cart";
   };
   useEffect(() => {
     setBooks(newBooks);
+  }, []);
+  useEffect(() => {
     handleAllPrice(newBooks);
+    onAllCount(newBooks);
   }, [newBooks]);
   return (
     <div className={styles.container}>
@@ -42,6 +45,7 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
             <CartItem
               key={book.id}
               book={book}
+              cartService={cartService}
               onAllCount={onAllCount}
               handleDelete={handleDelete}
             />

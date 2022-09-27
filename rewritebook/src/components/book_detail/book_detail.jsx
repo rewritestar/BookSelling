@@ -5,7 +5,12 @@ import styles from "./book_detail.module.css";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import SmallTitle from "../small_title/small_title";
 
-const BookDetail = ({ HeaderCartCount, onAllCount, likeService }) => {
+const BookDetail = ({
+  HeaderCartCount,
+  onAllCount,
+  likeService,
+  cartService,
+}) => {
   const location = useLocation();
   const book = location.state; //책 정보 받아오기
 
@@ -19,16 +24,21 @@ const BookDetail = ({ HeaderCartCount, onAllCount, likeService }) => {
   const handleCart = (e) => {
     const cartBook = book;
     cartBook.count = count.current;
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const found = cart.find((item) => item.id === cartBook.id);
-    if (found) {
-      alert("이미 장바구니에 존재합니다.");
-      return;
-    }
-    cart.push(cartBook);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    onAllCount(cart);
-    alert("장바구니에 성공적으로 담겼습니다!");
+    const cart = cartService.add(cartBook);
+    if (cart) {
+      onAllCount(cart);
+      alert("장바구니에 성공적으로 담겼습니다!");
+    } else alert("이미 장바구니에 존재합니다.");
+    // const cart = JSON.parse(localStorage.getItem("cart"));
+    // const found = cart.find((item) => item.id === cartBook.id);
+    // if (found) {
+    //   alert("이미 장바구니에 존재합니다.");
+    //   return;
+    // }
+    // cart.push(cartBook);
+    // localStorage.setItem("cart", JSON.stringify(cart));
+    // onAllCount(cart);
+    // alert("장바구니에 성공적으로 담겼습니다!");
   };
 
   const handlePriceUp = (e) => {

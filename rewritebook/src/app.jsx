@@ -10,18 +10,18 @@ import { useEffect, useState } from "react";
 import Header from "./components/header/header";
 function App({ bookApi, likeService, cartService }) {
   const [allCount, setAllCount] = useState(
-    localStorage.getItem("cartCount") ? localStorage.getItem("cartCount") : 0
+    cartService.getCartCount() ? cartService.getCartCount() : 0
   );
   useEffect(() => {
     console.log(likeService.getBooks()); // null값 나옴
     if (!likeService.getBooks()) likeService.init();
     if (!cartService.getBooks()) cartService.init();
-    // if (localStorage.getItem("cart") == undefined)
-    //   localStorage.setItem("cart", JSON.stringify([]));
   }, []);
   useEffect(() => {
-    localStorage.setItem("cartCount", allCount);
+    cartService.setCartCount(allCount);
   }, [allCount]);
+
+  //책 목록을 주면 전체 cartcount 해주는 함수.
   const handleAllCount = (newBooks) => {
     let counts = 0;
     newBooks.forEach((item) => (counts += item.count));
@@ -48,6 +48,7 @@ function App({ bookApi, likeService, cartService }) {
                 onAllCount={handleAllCount}
                 HeaderCartCount={HeaderCartCount}
                 likeService={likeService}
+                cartService={cartService}
               />
             }
           />
@@ -58,6 +59,7 @@ function App({ bookApi, likeService, cartService }) {
                 onAllCount={handleAllCount}
                 allCount={allCount}
                 HeaderCartCount={HeaderCartCount}
+                cartService={cartService}
               />
             }
           />
