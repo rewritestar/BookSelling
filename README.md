@@ -1,7 +1,7 @@
 # BookSelling Website(책판매 웹사이트-만들기)
-**Using google book api, this web site pretend to sell books.**
-*User can handle like button to collect book and can see that in like page.*
-*User can handle cart button to collect book and can see that in cart page.*
+**Using google book api, this web site pretend to sell books.**<br>
+*User can handle like button to collect book and can see that in like page.*<br>
+*User can handle cart button to collect book and can see that in cart page.*<br>
 *Their like's, cart's info are saved in localstrage. Not volatillity but User can remove all data.*
 
 ## Environment(개발환경)
