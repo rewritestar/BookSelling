@@ -5,21 +5,16 @@ import styles from "./book_detail.module.css";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import SmallTitle from "../small_title/small_title";
 
-const BookDetail = ({ HeaderCartCount, onAllCount }) => {
+const BookDetail = ({ HeaderCartCount, onAllCount, likeService }) => {
   const location = useLocation();
-  const book = location.state;
-  const [price, setPrice] = useState(book.price);
-  const count = useRef(1);
+  const book = location.state; //책 정보 받아오기
+
+  const [price, setPrice] = useState(book.price); //책의 고유 가격
+  const count = useRef(1); //책 권수 선택
+
   const handleLike = (e) => {
-    const like = JSON.parse(localStorage.getItem("like"));
-    const found = like.find((item) => item.id === book.id);
-    if (found) {
-      alert("이미 좋아요 목록에 존재합니다.");
-      return;
-    }
-    like.push(book);
-    localStorage.setItem("like", JSON.stringify(like));
-    alert("좋아요 목록에 성공적으로 담겼습니다!");
+    if (likeService.add(book)) alert("좋아요 목록에 성공적으로 담겼습니다!");
+    else alert("이미 좋아요 목록에 존재합니다.");
   };
   const handleCart = (e) => {
     const cartBook = book;

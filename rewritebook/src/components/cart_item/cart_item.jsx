@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 
 import styles from "./cart_item.module.css";
-const CartItem = ({ book, handleAllCount, handleDelete }) => {
+const CartItem = ({ book, onAllCount, handleDelete }) => {
   const [count, setCount] = useState(book.count);
   const navigate = useNavigate();
   const goToDetail = (e) => {
@@ -17,7 +17,7 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
       if (item.id == book.id) item.count = newCount;
     });
     localStorage.setItem("cart", JSON.stringify(origin));
-    handleAllCount(origin);
+    onAllCount(origin);
   };
   const handlePriceDown = (e) => {
     if (count <= 1) return;
@@ -28,7 +28,7 @@ const CartItem = ({ book, handleAllCount, handleDelete }) => {
       if (item.id == book.id) item.count = newCount;
     });
     localStorage.setItem("cart", JSON.stringify(origin));
-    handleAllCount(origin);
+    onAllCount(origin);
   };
   const onClick = (e) => {
     handleDelete(book);

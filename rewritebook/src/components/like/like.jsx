@@ -3,17 +3,15 @@ import Footer from "../footer/footer";
 import LikeItem from "../like_item/like_item";
 import Title from "../title/title";
 import styles from "./like.module.css";
-const Like = ({ HeaderCartCount }) => {
+const Like = ({ HeaderCartCount, likeService }) => {
   const [books, setBooks] = useState([]);
-  const newBooks = JSON.parse(localStorage.getItem("like"));
+  const newBooks = likeService.getBooks();
   useEffect(() => {
     setBooks(newBooks);
   }, [newBooks]);
 
   const handleDelete = (book) => {
-    const origin = JSON.parse(localStorage.getItem("like"));
-    const newBooks = origin.filter((item) => item.id !== book.id);
-    localStorage.setItem("like", JSON.stringify(newBooks));
+    const newBooks = likeService.remove(book);
     setBooks(newBooks);
   };
   return (

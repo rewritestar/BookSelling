@@ -9,9 +9,6 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
   const [allPrice, setAllPrice] = useState();
   const newBooks = JSON.parse(localStorage.getItem("cart"));
 
-  const handleAllCount = (newBooks) => {
-    onAllCount(newBooks);
-  };
   const handleAllPrice = (newBooks) => {
     let prices = 0;
     newBooks.forEach((item) => (prices += item.count * item.price));
@@ -31,7 +28,6 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
   };
   useEffect(() => {
     setBooks(newBooks);
-    handleAllCount(newBooks);
     handleAllPrice(newBooks);
   }, [newBooks]);
   return (
@@ -46,7 +42,7 @@ const Cart = ({ HeaderCartCount, onAllCount, allCount }) => {
             <CartItem
               key={book.id}
               book={book}
-              handleAllCount={handleAllCount}
+              onAllCount={onAllCount}
               handleDelete={handleDelete}
             />
           ))}

@@ -8,15 +8,16 @@ import Search from "./components/search/search";
 import styles from "./app.module.css";
 import { useEffect, useState } from "react";
 import Header from "./components/header/header";
-function App({ bookApi }) {
+function App({ bookApi, likeService, cartService }) {
   const [allCount, setAllCount] = useState(
     localStorage.getItem("cartCount") ? localStorage.getItem("cartCount") : 0
   );
   useEffect(() => {
-    if (localStorage.getItem("like") == undefined)
-      localStorage.setItem("like", JSON.stringify([]));
-    if (localStorage.getItem("cart") == undefined)
-      localStorage.setItem("cart", JSON.stringify([]));
+    console.log(likeService.getBooks()); // null값 나옴
+    if (!likeService.getBooks()) likeService.init();
+    if (!cartService.getBooks()) cartService.init();
+    // if (localStorage.getItem("cart") == undefined)
+    //   localStorage.setItem("cart", JSON.stringify([]));
   }, []);
   useEffect(() => {
     localStorage.setItem("cartCount", allCount);
@@ -46,6 +47,7 @@ function App({ bookApi }) {
               <BookDetail
                 onAllCount={handleAllCount}
                 HeaderCartCount={HeaderCartCount}
+                likeService={likeService}
               />
             }
           />
@@ -61,7 +63,12 @@ function App({ bookApi }) {
           />
           <Route
             path="/like"
-            element={<Like HeaderCartCount={HeaderCartCount} />}
+            element={
+              <Like
+                HeaderCartCount={HeaderCartCount}
+                likeService={likeService}
+              />
+            }
           />
           <Route
             path="/search"
