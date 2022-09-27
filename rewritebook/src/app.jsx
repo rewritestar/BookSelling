@@ -13,7 +13,6 @@ function App({ bookApi, likeService, cartService }) {
     cartService.getCartCount() ? cartService.getCartCount() : 0
   );
   useEffect(() => {
-    console.log(likeService.getBooks()); // null값 나옴
     if (!likeService.getBooks()) likeService.init();
     if (!cartService.getBooks()) cartService.init();
   }, []);
