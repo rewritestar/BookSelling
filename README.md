@@ -1,5 +1,8 @@
 # BookSelling Website(책판매 웹사이트-만들기)
-
+**Using google book api, this web site pretend to sell books.**
+*User can handle like button to collect book and can see that in like page.*
+*User can handle cart button to collect book and can see that in cart page.*
+*Their like's, cart's info are saved in localstrage. Not volatillity but User can remove all data.*
 
 ## Environment(개발환경)
 ### front-end(프론트앤드)
@@ -13,13 +16,13 @@
 - Google book api
 
 
-## Service(제공 기능)
-- google book api : search book with query(keyword). 
-- 좋아요 기능
-- 장바구니기능
-- 피드백 부분, 별점기능
-- 리뷰 정적 데이터로 관리(구현 제대로 못함)
 
+## Service(제공 기능)
+- 📖google book api : search book with query(keyword). 
+- ❤️Like page(좋아요 기능) : collect what I select with like button.
+- 🛒Cart page(장바구니 기능) : collect what I select with cart button.
+- ⭐Star rating(별점 기능) : In feedback component.
+- 🎱header cart count(장바구니 개수 기능) : Always show cart count on header.
 
 
 
