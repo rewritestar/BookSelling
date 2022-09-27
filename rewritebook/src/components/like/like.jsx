@@ -15,7 +15,7 @@ const Like = ({ HeaderCartCount, likeService }) => {
     setBooks(newBooks);
   };
   return (
-    <>
+    <div className={styles.container}>
       <HeaderCartCount />
       <div className={styles.title}>
         <Title name="Like" />
@@ -35,7 +35,7 @@ const Like = ({ HeaderCartCount, likeService }) => {
         })}
       </section>
       <Footer />
-    </>
+    </div>
   );
 };
 

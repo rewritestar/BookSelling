@@ -1,3 +1,9 @@
+.container {
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .title {
   position: relative;
   top: 7%;
@@ -13,4 +19,5 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   grid-gap: 60px;
+  flex: auto;
 }

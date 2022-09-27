@@ -57,12 +57,12 @@
 }
 
 .cart_count {
-  position: absolute;
+  position: relative;
   background-color: colorRed;
   color: colorWhite;
   padding: 0.05em 0.4em;
-  margin-left: 4.5em;
-  margin-bottom: 2em;
+  top: -15px;
+  left: -20px;
   border-radius: 50px;
 }
 

@@ -2,8 +2,9 @@
 @value fontB from '../../common/fonts.css';
 .container {
   overflow-x: hidden;
-  height: 100vh;
   /* 중요함. 내용물 아무것도 없을때 페이지 꽉 채우기. */
+
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
