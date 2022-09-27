@@ -29,8 +29,9 @@
 ## UI(최종 완성본 UI)
 1. main page(홈페이지))<br>
  - book api )<br>
-    <img src="https://user-images.githubusercontent.com/60992593/192455699-325ce07b-f784-4534-b823-e2dfe579f632.png" width="480" height="640"/>
+    <img src="https://user-images.githubusercontent.com/60992593/192455699-325ce07b-f784-4534-b823-e2dfe579f632.png" width="480" height="600"/>
  - review preview and feedback)<br>
+   <img src="" width="480" height="600"/>
     ![image](https://user-images.githubusercontent.com/60992593/192501087-907d5b1a-929c-4f57-a868-562a759044f5.png)
 
 2. search page(검색 페이지))<br>
