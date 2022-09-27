@@ -5,11 +5,11 @@
   flex-direction: column;
 }
 .title {
-  position: relative;
-  top: 7%;
-  left: 15%;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  width: 70%;
+  margin: 2em auto;
+}
+.content {
+  flex: auto;
 }
 
 .like_container {
@@ -19,5 +19,4 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   grid-gap: 60px;
-  flex: auto;
 }
