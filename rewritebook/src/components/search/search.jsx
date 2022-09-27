@@ -22,7 +22,8 @@ const Search = ({ bookApi, HeaderCartCount }) => {
     <div className={styles.container}>
       <HeaderCartCount />
       <div className={styles.title}>
-        <Title name="search" />
+        <Title name="Search >" />
+        <p className={styles.keyword}>{keyword}</p>
       </div>
       <section className={styles.search_container}>
         {books.map((book, i) => {

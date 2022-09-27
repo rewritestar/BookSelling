@@ -1,9 +1,18 @@
+@value colorGrey from '../../common/colors.css';
+
 .title {
+  display: flex;
+  align-items: center;
   position: relative;
   top: 7%;
   left: 15%;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 2em 0;
+}
+
+.keyword {
+  font-size: 25px;
+  color: colorGrey;
+  margin-left: 1em;
 }
 
 .search_container {
