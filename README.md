@@ -28,6 +28,8 @@
 
 ## UI(최종 완성본 UI)
 1. main page(홈페이지)
+![image](https://user-images.githubusercontent.com/60992593/192455699-325ce07b-f784-4534-b823-e2dfe579f632.png)
+
 2. search page(검색 페이지)
 3. like page(좋아요 페이지)
 4. cart page(장바구니 페이지)
