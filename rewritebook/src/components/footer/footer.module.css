@@ -1,5 +1,6 @@
 @value colorMajorGradient, colorBlue, colorPink from '../../common/colors.css';
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }

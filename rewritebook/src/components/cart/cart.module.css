@@ -1,6 +1,12 @@
 @value colorMajorGradient, colorYellow, colorWhite from '../../common/colors.css';
 @value fontB from '../../common/fonts.css';
-
+.container {
+  overflow-x: hidden;
+  height: 100vh;
+  /* 중요함. 내용물 아무것도 없을때 페이지 꽉 채우기. */
+  display: flex;
+  flex-direction: column;
+}
 .title {
   position: relative;
   left: 15%;
@@ -9,6 +15,9 @@
 .cart_container {
   background: colorMajorGradient;
   padding: 3em 0;
+  /* 중요함. 내용물 아무것도 없을때 페이지 꽉 채우기. */
+  /* 문제점: header의 cart count가 움직임. */
+  flex: auto;
 }
 
 .carts {
