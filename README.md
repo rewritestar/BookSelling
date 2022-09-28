@@ -12,7 +12,7 @@
 - yarn
 ### back-end(백앤드)
 - localstorage
-###API
+### API
 - Google book api
 
 
@@ -56,5 +56,5 @@
    <img src="https://user-images.githubusercontent.com/60992593/192501708-7981840a-fea3-4341-91d2-1ccf60e92bf5.png" width="480" height="600"/>
 
 ## Detail in blog
-   *link not yet*
+   (https://rewritestar.tistory.com/10)
 
