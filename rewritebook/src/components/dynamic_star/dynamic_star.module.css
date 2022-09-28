@@ -22,15 +22,11 @@
   display: none;
   cursor: pointer;
 }
-.drawStarsForm label:hover ~ label .fill {
-  display: inline-block;
-}
-.drawStarsForm label:hover ~ label .line {
-  display: none;
-}
+.drawStarsForm label:hover ~ label .fill,
 .drawStarsForm input:checked ~ label .fill {
   display: inline-block;
 }
+.drawStarsForm label:hover ~ label .line,
 .drawStarsForm input:checked ~ label .line {
   display: none;
 }

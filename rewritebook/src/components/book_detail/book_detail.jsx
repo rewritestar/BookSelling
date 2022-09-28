@@ -29,16 +29,6 @@ const BookDetail = ({
       onAllCount(cart);
       alert("장바구니에 성공적으로 담겼습니다!");
     } else alert("이미 장바구니에 존재합니다.");
-    // const cart = JSON.parse(localStorage.getItem("cart"));
-    // const found = cart.find((item) => item.id === cartBook.id);
-    // if (found) {
-    //   alert("이미 장바구니에 존재합니다.");
-    //   return;
-    // }
-    // cart.push(cartBook);
-    // localStorage.setItem("cart", JSON.stringify(cart));
-    // onAllCount(cart);
-    // alert("장바구니에 성공적으로 담겼습니다!");
   };
 
   const handlePriceUp = (e) => {
