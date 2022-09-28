@@ -6,7 +6,6 @@ const LikeItem = ({ book, key, handleDelete, pink }) => {
   const onClick = (e) => {
     handleDelete(book);
   };
-  console.log(bgColor);
   return (
     <div className={`${styles.container} ${bgColor}`}>
       <BookItem key={key} book={book} />
